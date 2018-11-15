@@ -21,10 +21,11 @@ To sum up :
 In simple words, Vagrant boxes are collection of software built and packaged by the vagrant community. e.g (Ubuntu/trusty64 is a box that provides a lightweight ubuntu 14.04 as the OS / laravel/homestead is a box that comes with a debian and all the software needed to develop a laravel app)
 There are thousands of vagrant box, for mostly every application you can think of (from developement to deveops to machine learning to whatever you want :D ) you can look for boxes here.
 Vagrant uses the box command to deal with boxes:
-`vagrant box add ubuntu/xenial64 #to download ubuntu xenial box`
-`vagrant box update ubuntu/xenial94 #to update ubuntu box`
-`vagrant box list # to list all the boxes installed`
-`vagrant box delete ubuntu/xenial64 # to delete ubuntu box`
+
+    vagrant box add ubuntu/xenial64 #to download ubuntu xenial box
+    vagrant box update ubuntu/xenial94 #to update ubuntu box
+    vagrant box list # to list all the boxes installed
+    vagrant box delete ubuntu/xenial64 # to delete ubuntu box
 
 ## The Vagrantfile
 To create(initialize) a VM in vagrant we use : `vagrant init boxname` this command will do nothing but create a configuration file `Vagrantfile` which is a ruby script containing all the configuration variables related to our VM.
