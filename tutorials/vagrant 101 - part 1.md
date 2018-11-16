@@ -27,7 +27,7 @@ In other words, Vagrant is a tool intended to save you from the pain of dealing 
 
 ## Vagrant Boxes
 In simple words, Vagrant boxes are collection of software built and packaged by the vagrant community. e.g (Ubuntu/trusty64 is a box that provides a lightweight ubuntu 14.04 as the OS / laravel/homestead is a box that comes with a debian and all the software needed to develop a laravel app)
-There are thousands of vagrant box, for mostly every application you can think of (from development to deveops to machine learning to whatever you want :D ) you can look for boxes here.
+There are thousands of vagrant box, for mostly every application you can think of (from development to deveops to machine learning to whatever you want :D ) you can look for boxes [here](https://app.vagrantup.com/boxes/search).
 Vagrant uses the box command to deal with boxes:
 
     vagrant box add ubuntu/xenial64 #to download ubuntu xenial box
@@ -50,3 +50,36 @@ Let's go through the file quickly, pointing out the most useful parameter in our
 - `config.vm.synced_folder "data", "/vagrant_data"` : set up shared folders between your machine and the VM.
 
 - `config.vm.provider` : provider specific configs
+
+You can write you own Vagrantfile from scratch of course.
+
+## Let's Rock
+The next step is setting up the vm and starting it.
+    
+    vagrant up
+    vagrant ssh
+The first command will setup based on the configurations in the Vagrantfile the virtual machine and start it. 
+The second will ssh into the VM an Huuuuray.
+
+## Provisioning
+One of the best features in Vagrant is provisioning. It enables us to setup custom and highly portable virtual machine. To understand provisioning let's look at an exemple.
+One of the easiest provisioners in vagrant is the shell provisioner(even inline or with a path).
+
+      config.vm.provision "shell", inline: "echo hello" 
+      config.vm.provision "shell", path: "script.sh"
+
+In the first example, vagrant will execute the shell command `echo hello`, after setting up our VM at the first time.
+In the second, vagrant will execute script.sh after setting up our VM at the first time.
+This is very helpful especially if we want to build many machine with the same initial setup and configurations.
+
+## Misc
+Finally, I'd like to bring you attenting to some useful command:
+
+    vagrant status # to know the status of the vm
+    vagrant halt # to shutdown the vm
+    vagrant suspend # to suspend the vm 
+    vagrant resume # to resume a suspended vm
+    vagrant reload # to reboot a vm (load the new Vagrantfile)
+    vagrant plugin # to manage plugins
+    vagrant destroy # to destroy a machine and delete all it's files
+You can learn more about vagrant from the manuals if you're using a Unix, otherwise from the --help or even from the docs in their website. 
