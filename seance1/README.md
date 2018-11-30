@@ -16,6 +16,7 @@ user_gen | `$len` : Integer | `$user` : array | Create an associative array `$us
 
 # The work to do
 - Change the content of a web page dynamicly based on the GET parameters (fname and len):
+```
 if `fname` is defined :
     - search for a user with the same 'fname' in the $users array.
     - dispaly his/her information into the index page.
@@ -25,3 +26,4 @@ else :
     else : 
         - generate a random user, the name/email lenghts is a constant number defined by you.
     - display the information about the random user in the index page.
+```
